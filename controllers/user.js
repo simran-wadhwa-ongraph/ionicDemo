@@ -2,7 +2,7 @@ const user = require('../model/user')
 const mongoose = require('mongoose');
 
 
-mongoose.connect('mongodb+srv://ongraph:ongraph@cluster0-9y2ym.mongodb.net/test?retryWrites=true&w=majority').then(()=> {
+mongoose.connect('mongodb+srv://sanjay:sanjay@cluster0-qgcnz.mongodb.net/test?retryWrites=true&w=majority').then(()=> {
 
 // mongoose.connect('mongodb://localhost:27017/node-demo').then(()=> {
     console.log("DB connected")

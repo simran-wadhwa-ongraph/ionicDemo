@@ -6,7 +6,7 @@ var cors = require('cors');
 // var cors = require("express");
 var api = require('./routes/index');
 
-const mongoUrl = 'mongodb+srv://ongraph:ongraph@cluster0-9y2ym.mongodb.net/test?retryWrites=true&w=majority';
+const mongoUrl = 'mongodb+srv://sanjay:sanjay@cluster0-qgcnz.mongodb.net/test?retryWrites=true&w=majority';
 
 // const mongoUrl = 'mongodb://localhost:27017/node-demo';
 
