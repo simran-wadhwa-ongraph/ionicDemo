@@ -12,7 +12,7 @@ mongoose.connect('mongodb+srv://ongraph:ongraph@cluster0-9y2ym.mongodb.net/test?
 
 
 
-exports.signUp = (req, res) =>{console.log("==========req======222========",req.body)
+exports.signUp = (req, res) =>{
     user.sign({name: req.body.name, email: req.body.email, password: req.body.password}, (err, response)=>{
         if(err) res.status(400).send(err);
         res.status(200).send(response);
@@ -35,6 +35,30 @@ exports.login = (req, res) =>{
 
 exports.update = (req, res) =>{
     user.update({name: req.body.name, email: req.body.email, password: req.body.password}, (err, response)=>{
+        if(err) {
+             res.status(404).send(err);
+            }
+        else{
+           res.status(200).send(response)
+        }
+    })
+}
+
+exports.updateUserLoc = (req, res) =>{
+    console.log("inside updateUserLOc controller",req.body)
+    user.updateLoc(req.body, (err, response)=>{
+        if(err) {
+             res.status(404).send(err);
+            }
+        else{
+           res.status(200).send(response)
+        }
+    })
+}
+
+exports.getAllUsers = (req, res) =>{
+    console.log("get All users-------------------------------------------------")
+    user.findAllUsers({}, (err, response)=>{
         if(err) {
              res.status(404).send(err);
             }

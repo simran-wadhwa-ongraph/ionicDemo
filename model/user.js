@@ -5,6 +5,8 @@ var userSchema = new mongoose.Schema({
         name: { type: String },
         email : { type: String, require: true, unique: true },
         password: { type: String, require:true },
+        latitude:{type: Number, require:true},
+        longitude:{type: Number, require: true}
     },
     facebook: {
         id           : { type: String },
@@ -38,3 +40,15 @@ module.exports.update = (data, cb) =>{
         cb(err, res);
     })
 } 
+
+module.exports.updateLoc = (data, cb) =>{
+    User.updateOne({"local.email": data.email}, {$set: { "local.longitude": data.longitude,"local.latitude": data.latitude}}, (err, res)=>{
+        cb(err, res);
+    })
+} 
+
+module.exports.findAllUsers = (data, cb) => {
+    User.find({}, (err, res) => {
+        cb(err, res);
+    })
+}  
